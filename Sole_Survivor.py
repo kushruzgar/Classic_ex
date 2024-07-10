@@ -9,3 +9,15 @@ last = 0
 for i in range(1, n + 1):
     last = (last + k) % i
 print(last + 1)
+
+
+# Способ 2 – рекурсия:
+
+def lastSurvivor(n, k):
+    if n == 1:
+        return 1
+    elif n > 1:
+        return (1 + (lastSurvivor(n - 1, k) + k - 1) % n)
+ 
+n, k = int(input()), int(input())
+print(lastSurvivor(n, k))
