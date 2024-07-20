@@ -20,3 +20,12 @@ if all(i in sum(matrix,[]) for i in range(1, n**2 + 1)):
     print('YES' if all(sum(i) == sum(j) == sum([matrix[i][i] for i in range(n)]) == sum([matrix[n-i-1][i] for i in range(n)]) for i in matrix for j in list(map(list, zip(*matrix)))) else 'NO')
 else:
     print('NO')
+
+
+# Способ 2 – с магической константой и множествами:
+
+n = int(input())
+square = [[*map(int, input().split())] for _ in range(n)]
+m_const = n * (1 + n ** 2) // 2                                                      
+print(('NO', 'YES')[all(sum(el) == m_const for x in (((square[i][i] for i in range(n)),(square[i][~i] for i in range(n))), square, zip(*square)) for el in x) and set(sum(square, [])) == set(range(1, n ** 2 + 1))])
+
