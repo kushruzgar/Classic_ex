@@ -1,0 +1,16 @@
+# 4. Разделение списка на подсписки
+
+# На вход подается строка чисел, из которой формируется список. 
+# Напишите программу, создающую вложенный список, элементами которого являются все возможные подсписки исходного списка, включая пустой.
+
+# Способ 1:
+
+lst = input().split()
+def sub_lists(lst):
+    lists = [[]]
+    for i in range(len(lst) + 1):
+        for j in range(i):
+            lists.append(lst[j:i])
+    lists = sorted(lists, key=len)
+    return lists
+print(sub_lists(lst))
