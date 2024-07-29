@@ -14,3 +14,8 @@ def sub_lists(lst):
     lists = sorted(lists, key=len)
     return lists
 print(sub_lists(lst))
+
+# Способ 2:
+
+print([[]] + [lst[j:i + j + 1] for lst in [input().split()] for i in range(len(lst)) for j in range(len(lst) - i)])
+
