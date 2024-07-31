@@ -19,3 +19,12 @@ print(sub_lists(lst))
 
 print([[]] + [lst[j:i + j + 1] for lst in [input().split()] for i in range(len(lst)) for j in range(len(lst) - i)])
 
+
+# Способ 3:
+
+st, lst = input().split(), [[]]
+for i in range(1, len(st) + 1):
+    for j in range(len(st) - i + 1):
+        lst += [st[j:j+i]]
+print(lst)
+
