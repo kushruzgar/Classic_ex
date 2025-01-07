@@ -32,3 +32,7 @@ c4
 
 # Решение
 # Способ 1:
+
+x, y, board = *('abcdefgh87654321'.index(i) % 8 for i in input()), range(8)
+[print(*['?Q**.'[len({j - x, x - j, i - y, y - i})] for j in board]) for i in board]
+    
