@@ -35,4 +35,10 @@ c4
 
 x, y, board = *('abcdefgh87654321'.index(i) % 8 for i in input()), range(8)
 [print(*['?Q**.'[len({j - x, x - j, i - y, y - i})] for j in board]) for i in board]
-    
+
+
+# Способ 2:
+
+x, y = ('abcdefgh87654321'.index(i) % 8 for i in input())
+directions = lambda i, j: (j - i == x - y) + (j + i == x + y) + ((j == x) != (i == y))
+[print(*['.*Q'[directions(i, j)] for j in range(8)]) for i in range(8)]
